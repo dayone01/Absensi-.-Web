@@ -25,9 +25,6 @@
       text-align: center;
       backdrop-filter: blur(6px);
     }
-    h2 {
-      margin-bottom: 20px;
-    }
     input, select, button {
       width: 100%;
       padding: 10px;
@@ -50,14 +47,7 @@
     button:hover {
       background-color: #009624;
     }
-    #time {
-      font-size: 14px;
-      margin-top: 10px;
-      opacity: 0.8;
-    }
-    #page2 {
-      display: none;
-    }
+    #page2 { display: none; }
   </style>
 </head>
 <body>
@@ -66,16 +56,15 @@
     <input type="text" id="username" placeholder="Username" required />
     <input type="password" id="password" placeholder="Password" required />
     <button onclick="login()">Konfirmasi</button>
-    <p id="loginError" style="color: #ff6b6b; font-size: 14px;"></p>
+    <p id="loginError" style="color:#ff6b6b;font-size:14px;"></p>
   </div>
 
   <div class="container" id="page2">
     <h2>Form Absensi</h2>
     <form id="absensiForm">
-      <input type="text" name="NAMA_SISWA" placeholder="Nama Siswa" required />
+      <input type="text" name="NAMA SISWA" placeholder="Nama Siswa" required />
       <input type="text" name="KELAS" placeholder="Kelas" required />
       <input type="date" name="TANGGAL" required />
-      <label for="KETERANGAN">Keterangan:</label>
       <select name="KETERANGAN" required>
         <option value="">-- Pilih Keterangan --</option>
         <option value="Hadir">Hadir</option>
@@ -88,7 +77,9 @@
   </div>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwS5cWxRpx_RVGrWEMTgHgY9iuu-MUsD-L3W-ySgz1J3B7M5FMPb-2Gbk3qt1MNjxJ5qw/exec';
+    // GANTI URL DI SINI SESUDAH KAMU DEPLOY SCRIPTNYA
+    const scriptURL = 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbwuORLdkwClfBa7eEzBa1B44YXdMoMDHc6JVPlBB9egN-FL7aroaM-NxAv_5RqROE9B/exec';
+
     const form = document.getElementById('absensiForm');
     const loginPage = document.getElementById('loginPage');
     const page2 = document.getElementById('page2');
@@ -106,7 +97,6 @@
       }
     }
 
-    // Kirim data ke Google Sheets
     form.addEventListener('submit', e => {
       e.preventDefault();
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -120,12 +110,11 @@
         });
     });
 
-    // Realtime jam
     setInterval(() => {
       const now = new Date();
-      document.getElementById('time').textContent = 
-        "Waktu saat ini: " + now.toLocaleTimeString("id-ID");
+      document.getElementById('time').textContent =
+        "Waktu saat ini: " + now.toLocaleTimeString();
     }, 1000);
   </script>
 </body>
-</html>
+</html
